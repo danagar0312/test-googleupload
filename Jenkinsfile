@@ -15,8 +15,8 @@ stage('Prepare repository') {
 
     stage('Building image') {
         /* Building the docker image */
-	    script{
-		docker.build(registry)
-	    }
+	    
+	app = docker.build(registry)
+	    
 	} 
 }
