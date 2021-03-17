@@ -8,7 +8,7 @@ node{
 	
 stage('Prepare repository') {
         /* Copying the subdir to the parent */
-        sh "cp -a googleupload-image. ."
+        sh "cp -a googleupload-image/. ."
         /* Removing sub directory */
         sh "rm -rf googleupload-image"
     }
