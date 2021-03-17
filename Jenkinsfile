@@ -7,7 +7,7 @@ node{
     }
 	stage('Prepare repository') {
         /* Copying the subdir to the parent */
-        sh "cp -a googleupload-service/. ."
+        sh "cp -a ./googleupload-service/. ."
         /* Removing sub directory */
         sh "rm -rf ./googleupload-service"
     }
