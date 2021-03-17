@@ -3,8 +3,6 @@ node{
     def registry = 'pingintelligence/googleupload-service'
     def registryCredential = 'dockerhub-id'
     stage("SCM Checkout"){
-	checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_id', url: 'https://github.com/danagar0312/test-googleupload']]])		    }
-    stage('Building image') {
-        docker.build(registry)
-	} 
+	checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_id', url: 'https://github.com/danagar0312/test-googleupload']]])
+    }
 }
