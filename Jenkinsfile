@@ -19,7 +19,7 @@ stage('Initialize'){
     stage('Building image') {
         /* Building the docker image */
 	    
-	app = docker.build(registry)
+	app = docker.build registry
 	    
 	} 
 }
