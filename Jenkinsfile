@@ -2,10 +2,10 @@ node{
     def app
     def registry = 'pingintelligence/googleupload-image'
     stage("SCM Checkout"){
-	checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_id', url: 'https://github.com/danagar0312/test-googleupload']]])
+	    checkout scm
     }
     
-    stage('Prepare repository') {
+    stage('Switch to repository') {
         dir('googleupload-image/') {
 	}
     }
