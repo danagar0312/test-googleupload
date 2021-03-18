@@ -16,15 +16,10 @@ node{
     
    
     stage('Push Docker Image'){
-	    steps{
-		    script{
-			withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://registry.hub.docker.com') {
-       				app.push("latest") 
-		    }
-	    }
-   
-	}
-    }   
+	    
+   	docker.withRegistry('https://registry.hub.docker.com', registryCredential ) {
+            app.push("latest")
+        }
 	
 	
 }
