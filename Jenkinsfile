@@ -15,4 +15,22 @@ node{
 		step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: 'googleupload-image/', fromRegistry: [], pushCredentialsId: 'dockerhub_id', pushOnSuccess: false, tagsString: 'pingintelligence/googleupload-image'])
 
 	}
+	
+	stage('Build Docker Image'){    		
+       app = docker.build registry
+    }
+    
+    stage('Test image') {           
+       app.inside {              
+          sh 'echo "Tests passed"'        
+       }    
+    }
+   
+    stage('Push Docker Image'){
+       docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
+       app.push("${env.BUILD_NUMBER}")            
+       app.push("latest")  
+    }   
+	
+	
 }
