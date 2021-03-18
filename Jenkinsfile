@@ -16,8 +16,13 @@ node{
     
    
     stage('Push Docker Image'){
-       withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://registry.hub.docker.com') {
-       app.push("latest")  
+	    steps{
+		    script{
+			withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://registry.hub.docker.com') {
+       				app.push("latest") 
+		    }
+	    }
+   
 	}
     }   
 	
