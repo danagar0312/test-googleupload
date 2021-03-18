@@ -10,12 +10,6 @@ node{
         dir('googleupload-image/') {
 	}
     }
-    
-	stage('Build and publish'){
-		step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: 'googleupload-image/', fromRegistry: [], pushCredentialsId: 'dockerhub_id', pushOnSuccess: false, tagsString: 'pingintelligence/googleupload-image'])
-
-	}
-	
 	stage('Build Docker Image'){    		
        app = docker.build registry
     }
