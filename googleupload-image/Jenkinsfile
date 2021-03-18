@@ -7,11 +7,10 @@ node{
     
     stage('Prepare repository') {
         dir('googleupload-image/') {
+		app = docker.build registry
 	}
     }
-	stage('Build Docker Image'){    		
-       app = docker.build registry
-    }
+
     
    
     stage('Push Docker Image'){
