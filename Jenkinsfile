@@ -20,6 +20,7 @@ node{
    	docker.withRegistry('https://registry.hub.docker.com', registryCredential ) {
             app.push("latest")
         }
+    }
 	
 	
 }
