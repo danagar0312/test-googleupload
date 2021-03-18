@@ -14,16 +14,11 @@ node{
        app = docker.build registry
     }
     
-    stage('Test image') {           
-       app.inside {              
-          sh 'echo "Tests passed"'        
-       }    
-    }
    
     stage('Push Docker Image'){
-       docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
-       app.push("${env.BUILD_NUMBER}")            
+       withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://registry.hub.docker.com') {
        app.push("latest")  
+	}
     }   
 	
 	
