@@ -7,10 +7,8 @@ node{
     }
     
     stage('Prepare repository') {
-        /* Copying the subdir to the parent */
-        bat "cp -a googleupload-image/. ."
-        /* Removing sub directory */
-        bat "rm -rf googleupload-image/."
+        dir('googleupload-image/') {
+	}
     }
 
     stage('Building image') {
